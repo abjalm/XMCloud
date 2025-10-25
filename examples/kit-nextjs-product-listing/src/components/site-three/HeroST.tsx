@@ -30,7 +30,7 @@ export const Default = (props: PageHeaderSTProps) => {
       className={`relative flex items-center border-8 lg:border-16 border-background ${props?.params?.styles || ''}`}
       data-class-change
     >
-      <div className="absolute inset-0 z-10">
+      <div className="absolute inset-0 z-10" aria-label='test'>
         <ContentSdkImage
           field={props?.fields?.Image1}
           width={1920}
