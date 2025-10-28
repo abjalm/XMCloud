@@ -4,6 +4,7 @@ import { Form } from '@sitecore-content-sdk/nextjs';
 // end of built-in components
 
 // Components imported from the app itself
+import * as TitleAndText from 'src/components/TitleAndText';
 import * as Title from 'src/components/title/Title';
 import * as RowSplitter from 'src/components/row-splitter/RowSplitter';
 import * as RichText from 'src/components/rich-text/RichText';
@@ -23,6 +24,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['BYOCWrapper', BYOCWrapper],
   ['FEaaSWrapper', FEaaSWrapper],
   ['Form', Form],
+  ['TitleAndText', TitleAndText],
   ['Title', Title],
   ['RowSplitter', RowSplitter],
   ['RichText', RichText],
