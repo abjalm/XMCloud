@@ -27,10 +27,9 @@ export const Default = (props: TitleAndTextProps): React.ReactElement => {
       <div className="component-content text row">
         <Text field={props.fields.Text} />
       </div>
-       <div className="component-content text row">
+      <div className="component-content text row">
         <Text field={props.fields.Text1} />
       </div>
     </div>
   );
 };
-
