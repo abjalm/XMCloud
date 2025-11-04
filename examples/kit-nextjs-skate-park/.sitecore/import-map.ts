@@ -5,7 +5,7 @@ import { combineImportEntries, defaultImportEntries } from '@sitecore-content-sd
 
 import { useState, useEffect } from 'react';
 import React from 'react';
-import { Text, Link, useSitecore, Placeholder, RichText, NextImage, CdpHelper, withDatasourceCheck } from '@sitecore-content-sdk/nextjs';
+import { Text, withDatasourceCheck, Link, useSitecore, Placeholder, RichText, NextImage, CdpHelper } from '@sitecore-content-sdk/nextjs';
 import Head from 'next/head';
 import client from 'lib/sitecore-client';
 import Image from 'next/image';
@@ -27,13 +27,13 @@ const importMap = [
     module: '@sitecore-content-sdk/nextjs',
     exports: [
       { name: 'Text', value: Text },
+      { name: 'withDatasourceCheck', value: withDatasourceCheck },
       { name: 'Link', value: Link },
       { name: 'useSitecore', value: useSitecore },
       { name: 'Placeholder', value: Placeholder },
       { name: 'RichText', value: RichText },
       { name: 'NextImage', value: NextImage },
       { name: 'CdpHelper', value: CdpHelper },
-      { name: 'withDatasourceCheck', value: withDatasourceCheck },
     ]
   },
   {
