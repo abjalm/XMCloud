@@ -3,9 +3,9 @@
 import { combineImportEntries, defaultImportEntries } from '@sitecore-content-sdk/nextjs/codegen';
 // end of built-in imports
 
-import { Link, Text, useSitecore, Placeholder, RichText, NextImage, CdpHelper, withDatasourceCheck } from '@sitecore-content-sdk/nextjs';
 import { useState, useEffect } from 'react';
 import React from 'react';
+import { Text, Link, useSitecore, Placeholder, RichText, NextImage, CdpHelper, withDatasourceCheck } from '@sitecore-content-sdk/nextjs';
 import Head from 'next/head';
 import client from 'lib/sitecore-client';
 import Image from 'next/image';
@@ -16,24 +16,24 @@ import config from 'sitecore.config';
 
 const importMap = [
   {
+    module: 'react',
+    exports: [
+      { name: 'useState', value: useState },
+      { name: 'useEffect', value: useEffect },
+      { name: 'default', value: React },
+    ]
+  },
+  {
     module: '@sitecore-content-sdk/nextjs',
     exports: [
-      { name: 'Link', value: Link },
       { name: 'Text', value: Text },
+      { name: 'Link', value: Link },
       { name: 'useSitecore', value: useSitecore },
       { name: 'Placeholder', value: Placeholder },
       { name: 'RichText', value: RichText },
       { name: 'NextImage', value: NextImage },
       { name: 'CdpHelper', value: CdpHelper },
       { name: 'withDatasourceCheck', value: withDatasourceCheck },
-    ]
-  },
-  {
-    module: 'react',
-    exports: [
-      { name: 'useState', value: useState },
-      { name: 'useEffect', value: useEffect },
-      { name: 'default', value: React },
     ]
   },
   {
