@@ -26,7 +26,7 @@ type TitleAndTextProps = ComponentProps & {
 };
 
 const TitleAndTexts = (props: TitleAndTextProps): React.ReactElement => {
-  console.log('props', props.fields.Name  );
+  console.log('props', props.fields.Name);
   const containerStyles = props.params && props.params.styles ? props.params.styles : '';
   const styles = `${props.params.GridParameters} ${containerStyles}`.trimEnd();
 
@@ -42,11 +42,10 @@ const TitleAndTexts = (props: TitleAndTextProps): React.ReactElement => {
         <Text field={props.fields.Text} />
       </div>
       <div className="component-content text row">
-       <h1>{props.fields.Name}</h1>
-         <h2>{props.fields.ShortDesc}</h2>
-           <h3>{props.fields.LongDesc}</h3>
+        <h1>{props.fields.Name}</h1>
+        <h2>{props.fields.ShortDesc}</h2>
+        <h3>{props.fields.LongDesc}</h3>
       </div>
-     
     </div>
   );
 };
