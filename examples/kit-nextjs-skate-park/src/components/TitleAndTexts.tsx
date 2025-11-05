@@ -12,7 +12,9 @@ import {
 interface Fields {
   Title: Field<string>;
   Text: Field<string>;
-  Text1: Field<string>;
+  Name: string;
+  ShortDesc: string;
+  LongDesc: string;
 }
 type ComponentProps = {
   rendering: ComponentRendering;
@@ -24,7 +26,7 @@ type TitleAndTextProps = ComponentProps & {
 };
 
 const TitleAndTexts = (props: TitleAndTextProps): React.ReactElement => {
-  console.log('props', props.fields.Text1);
+  console.log('props', props.fields.Name  );
   const containerStyles = props.params && props.params.styles ? props.params.styles : '';
   const styles = `${props.params.GridParameters} ${containerStyles}`.trimEnd();
 
@@ -40,8 +42,11 @@ const TitleAndTexts = (props: TitleAndTextProps): React.ReactElement => {
         <Text field={props.fields.Text} />
       </div>
       <div className="component-content text row">
-        <Text field={props.fields.Text1} />
+       <h1>{props.fields.Name}</h1>
+         <h2>{props.fields.ShortDesc}</h2>
+           <h3>{props.fields.LongDesc}</h3>
       </div>
+     
     </div>
   );
 };
@@ -53,12 +58,14 @@ export const getComponentServerProps: GetComponentServerProps = async (rendering
   const post = await fetchPost();
   //console.log("post",post);
   if (rendering.fields) {
-    rendering.fields.Text1 = post?.Versions[0].ShortDescription;
+    rendering.fields.Name = post?.Versions[0].Name;
+    rendering.fields.ShortDesc = post?.Versions[0].ShortDescription;
+    rendering.fields.LongDesc = post?.Versions[0].LongDescription;
   }
   return {
     props: {
       fields: {
-        Text1: post?.Versions[0].ShortDescription,
+        Name: post?.Versions[0].ShortDescription,
       },
     },
   };
